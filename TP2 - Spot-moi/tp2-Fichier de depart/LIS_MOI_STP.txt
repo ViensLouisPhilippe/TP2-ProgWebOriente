@@ -1,0 +1,23 @@
+Pour sauver du temps dans le TP2, vous pouvez utiliser le HTML / CSS fourni, c'est-à-dire les fichiers suivants :
+
+→ artist.html
+→ album.html
+→ song.html
+→ show.html
+→ styles.css
+→ le dossier images et son contenu (dans le dossier assets)
+
+⛔ Attention par contre ! ⛔
+
+Ces fichiers ne sont pas adaptés pour un projet Angular. Vous allez donc devoir ...
+
+1 - Créer un projet Angular
+2 - Créer quatre composants supplémentaires
+3 - Intégrer le HTML qui sert de squelette dans le composant app
+4 - Intégrer le HTML spécifique à chaque page dans les autres composants
+5 - Intégrer le CSS global et le CSS spécifique à chaque page dans les bons fichiers .css du projet Angular
+6 - Intégrer les images dans les assets du projet Angular
+7 - Dans tous les composants, s'assurer que les liens relatifs vers les images (et les styles CSS) fonctionnent encore.
+
+Pas besoin de Bootstrap ! Rassurez-vous, faire toutes ces étapes reste beaucoup plus rapide que faire votre propre HTML / CSS.
+De plus, c'est une bonne opportunité de réviser la structure des fichiers d'un projet Angular.

@@ -7,6 +7,9 @@ import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
 import { SongComponent } from './song/song.component';
 import { ShowComponent } from './show/show.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [				
@@ -18,7 +21,16 @@ import { ShowComponent } from './show/show.component';
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:"", redirectTo: "/artist", pathMatch:"full"},
+      {path:"artist", component:ArtistComponent},
+      {path:"album", component:AlbumComponent},
+      {path:"show", component:ShowComponent},
+      {path:"song", component:SongComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

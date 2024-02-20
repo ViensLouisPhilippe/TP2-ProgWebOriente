@@ -2,8 +2,12 @@
     <main>
         <h3>Concerts de l'artiste X</h3>
         <div class="row">
-            <img src="assets/images/googlemap.png" alt="Google Map" class="map">
-
+            <google-map
+                [center]="center"
+                [zoom]="zoom"
+                width="700"
+                height="300">
+            </google-map>
             <div class="shows">
 
                  <!-- Liste des concerts -->

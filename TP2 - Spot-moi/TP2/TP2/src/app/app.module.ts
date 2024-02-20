@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,12 +24,14 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    GoogleMapsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path:"", redirectTo: "/artist", pathMatch:"full"},
       {path:"artist", component:ArtistComponent},
       {path:"album", component:AlbumComponent},
       {path:"show", component:ShowComponent},
+      {path:"show/:nomArtist", component:ShowComponent},
       {path:"song", component:SongComponent}
     ])
   ],

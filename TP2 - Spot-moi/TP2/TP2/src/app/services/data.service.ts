@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Artist } from '../model/artist';
 import { lastValueFrom } from 'rxjs';
+import { show } from '../model/show';
 
 const CLIENT_ID : string = "b5ab92f30c1546b7b57f108b9d871bcc";
 const CLIENT_SECRET : string = "0a54a3b296124daeb2a507833622c2c7";
+const googleApiKey = "AIzaSyBiiIi-GVR1Ky8Sdo0JxZjjZ61JBhlmXUU";
 @Injectable({
   providedIn: 'root'
 })
@@ -41,4 +43,18 @@ export class SpotifyService {
     return a;
   }
 
+  async searchVideoId(searchText : string) : Promise<string>{
+    // Requête pour obtenir l'Id d'une vidéo YouTube ici ! Utilisez le paramètre searchText.
+
+    // Remplacez ce return par l'id de la vidéo obtenue.
+    let id = await lastValueFrom(this.http.get<any>("https://www.googleapis.com/youtube/v3/search?type=video&part=id&maxResults=1&key="+ googleApiKey + "&q="+ searchText));
+    return id.items[0].id.videoId;
+  }
+  async searchShows(artistName : string) : Promise<void>{
+    if(artistName != null)
+    {
+      let s = await lastValueFrom(this.http.get<any>("https://rest.bandsintown.com/artists/"+artistName+"/events?app_id="+ googleApiKey));
+      console.log(s);
+    }
+  }
 }

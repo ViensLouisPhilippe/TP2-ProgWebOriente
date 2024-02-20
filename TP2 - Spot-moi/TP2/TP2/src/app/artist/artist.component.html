@@ -14,7 +14,7 @@
                             <h4>{{a.name}}</h4>
                             <img src="{{a.imageUrl}}" alt="">
                             <button>Albums</button>
-                            <button>Concerts</button>
+                            <button [routerLink]="['/show',a.name]">Concerts</button>
                     </div>
                 </div>
             </div>

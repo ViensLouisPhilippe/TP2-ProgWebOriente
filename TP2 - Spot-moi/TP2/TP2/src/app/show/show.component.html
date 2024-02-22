@@ -1,40 +1,22 @@
 
     <main>
-        <h3>Concerts de l'artiste X</h3>
+        <h3>Concerts de l'artiste {{nomArtist}}</h3>
         <div class="row">
             <google-map
                 [center]="center"
                 [zoom]="zoom"
-                width="700"
-                height="300">
+                width="1000"
+                height="400">
+                <map-marker
+                    *ngFor="let marker of markerPosition"
+                    [position]="marker">
+                </map-marker>
             </google-map>
             <div class="shows">
-
-                 <!-- Liste des concerts -->
-                <div>
-                    <h4>Jan 1, 2024, 8:00:00 PM</h4>
-                    <p>Pays</p>
-                    <p>Ville</p>
-                </div>
-                <div>
-                    <h4>Jan 1, 2024, 8:00:00 PM</h4>
-                    <p>Pays</p>
-                    <p>Ville</p>
-                </div>
-                <div>
-                    <h4>Jan 1, 2024, 8:00:00 PM</h4>
-                    <p>Pays</p>
-                    <p>Ville</p>
-                </div>
-                <div>
-                    <h4>Jan 1, 2024, 8:00:00 PM</h4>
-                    <p>Pays</p>
-                    <p>Ville</p>
-                </div>
-                <div>
-                    <h4>Jan 1, 2024, 8:00:00 PM</h4>
-                    <p>Pays</p>
-                    <p>Ville</p>
+                <div *ngFor="let s of showsList">
+                    <h4>{{s.date | date:'MMM d, y, h:mm:ss a'}}</h4>
+                    <p>{{s.pays}}</p>
+                    <p>{{s.ville}}</p>
                 </div>
 
             </div>           

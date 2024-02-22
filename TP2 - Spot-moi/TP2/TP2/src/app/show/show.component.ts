@@ -13,24 +13,24 @@ export class ShowComponent implements OnInit {
   zoom : number = 2;
   showsList : show[] = [];
   nomArtist : string | null = null;
-  
+  markerPosition : google.maps.LatLngLiteral[] = [];
 
   constructor(public route : ActivatedRoute, public data : SpotifyService) { }
 
-  ngOnInit() {
-    // 1 - On clique sur un [routerLink] dans le composant artist qui mène vers show/NOM_ARTISTE
-    // 2- ce composant-ci obtient le nom de l'artiste dans la route
-    // 3 - on lance la requête https://rest.bandsintown.com/artists/MON_ARTISTE/events?app_id=API_KEY avec le nom de l'Artiste reçu
-    // 4- ???
-    // 5 - profit
+  async ngOnInit() {
     this.nomArtist = this.route.snapshot.paramMap.get("nomArtist");
     if(this.nomArtist != undefined)
-      this.data.searchShows(this.nomArtist);
-    
+    {
+      this.showsList = await this.data.searchShows(this.nomArtist);
+      this.getShowsMarkers();
+    }
+
 
   }
-  async getShows(){
-
+  async getShowsMarkers(){
+    for(let e of this.showsList){
+      this.markerPosition.push({lat : e.lat, lng : e.lng}); 
+    }
   }
 
 }

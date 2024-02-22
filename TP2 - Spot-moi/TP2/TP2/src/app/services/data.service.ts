@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Artist } from '../model/artist';
-import { lastValueFrom } from 'rxjs';
+import { last, lastValueFrom } from 'rxjs';
 import { show } from '../model/show';
 import { Data } from '@angular/router';
+import { album } from '../model/album';
+import { song } from '../model/song';
 
 const CLIENT_ID : string = "b5ab92f30c1546b7b57f108b9d871bcc";
 const CLIENT_SECRET : string = "0a54a3b296124daeb2a507833622c2c7";
@@ -44,15 +46,41 @@ export class SpotifyService {
     console.log("Artiste : ", a);
     return a;
   }
-
-  async searchVideoId(searchText : string) : Promise<string>{
-    // Requête pour obtenir l'Id d'une vidéo YouTube ici ! Utilisez le paramètre searchText.
-
-    // Remplacez ce return par l'id de la vidéo obtenue.
-    let id = await lastValueFrom(this.http.get<any>("https://www.googleapis.com/youtube/v3/search?type=video&part=id&maxResults=1&key="+ googleApiKey + "&q="+ searchText));
-    return id.items[0].id.videoId;
+  async getAlbums(artistId : string): Promise<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.spotifyToken
+        })
+    };
+      let x = await lastValueFrom(this.http.get<any>("https://api.spotify.com/v1/artists/" + artistId + 
+      "/albums?include_groups=album,single", httpOptions));
+      console.log(x);
+  
+      let albums = [];
+    for(let i = 0; i < x.items.length; i++){
+      albums.push(new album(x.items[i].id, x.items[i].name, x.items[i].images[0].url));
+    }
+    return albums;
   }
-  async searchShows(artistName : string) : Promise<show[]>{
+  async getSongs(album: album): Promise<song[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.spotifyToken
+        })
+    };
+    let x = await lastValueFrom(this.http.get<any>("https://api.spotify.com/v1/albums/" + album.id, httpOptions));
+    console.log(x);
+
+    let songs : song[] = [];
+    for(let i = 0; i < x.tracks.items.length; i++){
+      songs.push(new song(x.tracks.items[i].id, x.tracks.items[i].name));
+    }
+       return songs;
+  }
+
+  async getShows(artistName : string) : Promise<show[]>{
 
     if(artistName != null)
     {
@@ -66,4 +94,13 @@ export class SpotifyService {
     }
     return [];
   }
+
+  async getVideoId(searchText : string) : Promise<string>{
+    let id = await lastValueFrom(this.http.get<any>("https://www.googleapis.com/youtube/v3/search?type=video&part=id&maxResults=1&key="+ googleApiKey + "&q="+ searchText));
+    return id.items[0].id.videoId;
+  }
+  
 }
+
+
+    

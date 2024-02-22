@@ -1,4 +1,4 @@
 export class song{
 
-    constructor(public name: string,  public urlVideo : string){}
+    constructor(public id: string, public name: string){}
 }

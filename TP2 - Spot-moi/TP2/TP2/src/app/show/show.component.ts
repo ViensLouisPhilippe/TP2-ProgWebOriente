@@ -21,13 +21,13 @@ export class ShowComponent implements OnInit {
     this.nomArtist = this.route.snapshot.paramMap.get("nomArtist");
     if(this.nomArtist != undefined)
     {
-      this.showsList = await this.data.searchShows(this.nomArtist);
+      this.showsList = await this.data.getShows(this.nomArtist);
       this.getShowsMarkers();
     }
 
 
   }
-  async getShowsMarkers(){
+  getShowsMarkers(){
     for(let e of this.showsList){
       this.markerPosition.push({lat : e.lat, lng : e.lng}); 
     }

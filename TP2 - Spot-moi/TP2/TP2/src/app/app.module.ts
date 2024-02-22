@@ -30,9 +30,11 @@ import { FormsModule } from '@angular/forms';
       {path:"", redirectTo: "/artist", pathMatch:"full"},
       {path:"artist", component:ArtistComponent},
       {path:"album", component:AlbumComponent},
+      {path:"album/:idArtist", component:AlbumComponent},
       {path:"show", component:ShowComponent},
       {path:"show/:nomArtist", component:ShowComponent},
-      {path:"song", component:SongComponent}
+      {path:"song", component:SongComponent},
+      {path:"song/:idAlbum", component:SongComponent}
     ])
   ],
   providers: [],

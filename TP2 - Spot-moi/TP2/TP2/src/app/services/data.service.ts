@@ -63,7 +63,7 @@ export class SpotifyService {
     }
     return albums;
   }
-  async getSongs(albumId: string): Promise<song[]> {
+  async getSongs(albumId: string): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -75,8 +75,9 @@ export class SpotifyService {
 
     let songs : song[] = [];
     for(let i = 0; i < x.tracks.items.length; i++){
-      songs.push(new song(x.tracks.items[i].id, x.tracks.items[i].name));
+      songs.push(new song(x.tracks.items[i].id, x.tracks.items[i].name, x.tracks.items[i].artists[0].name));
     }
+    console.log(songs)
        return songs;
   }
 

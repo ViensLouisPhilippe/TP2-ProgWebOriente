@@ -14,7 +14,7 @@
                     <!-- Liste de chansons d'un album choisi -->
                     <div *ngFor = "let s of Songs">
                         <p>{{s.name}} </p>
-                        <button (click)="searchVideo(s.name)">Jouer</button>
+                        <button (click)="searchVideo(s.name, s.artist)">Jouer</button>
                     </div>
                 </div>
             </div>

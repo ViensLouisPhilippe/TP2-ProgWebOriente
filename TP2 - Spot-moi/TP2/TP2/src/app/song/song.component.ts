@@ -26,8 +26,9 @@ export class SongComponent implements OnInit {
       this.Songs = await this.data.getSongs(this.albumId);
     }
   }
-  async searchVideo(songName : string): Promise<void>{
-    this.videoId = await this.data.getVideoId(songName);
+  async searchVideo(songName : string, artistName : string): Promise<void>{
+    this.videoId = await this.data.getVideoId(songName + " " + artistName);
+    console.log(songName + " " + artistName);
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(youtubeURL + this.videoId);
 
   }

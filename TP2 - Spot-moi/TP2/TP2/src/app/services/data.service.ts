@@ -57,6 +57,7 @@ export class SpotifyService {
       "/albums?include_groups=album,single", httpOptions));
       console.log(x);
   
+      sessionStorage.setItem("artistName", x.items[0].artists[0].name);
       let albums = [];
     for(let i = 0; i < x.items.length; i++){
       albums.push(new album(x.items[i].id, x.items[i].name, x.items[i].images[0].url));
@@ -72,13 +73,14 @@ export class SpotifyService {
     };
     let x = await lastValueFrom(this.http.get<any>("https://api.spotify.com/v1/albums/" + albumId, httpOptions));
     console.log(x);
-
+    sessionStorage.setItem("albumName", x.name);
     let songs : song[] = [];
     for(let i = 0; i < x.tracks.items.length; i++){
       songs.push(new song(x.tracks.items[i].id, x.tracks.items[i].name, x.tracks.items[i].artists[0].name));
     }
-    console.log(songs)
+    
        return songs;
+       
   }
 
   async getShows(artistName : string) : Promise<show[]>{

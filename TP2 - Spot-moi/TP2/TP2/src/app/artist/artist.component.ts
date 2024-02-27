@@ -20,11 +20,28 @@ export class ArtistComponent implements OnInit {
   constructor(public httpClient : HttpClient, public data : SpotifyService) { }
 
   ngOnInit() {
+    //
+    this.jsonData = localStorage.getItem("listArtists");
+    if(this.jsonData != null)
+    {
+      this.listArtists= JSON.parse(this.jsonData);
+    }
     this.data.connect();
 
   }
   async getArtist(){
+
     this.artist = await this.data.searchArtist(this.nomArtist);
-    this.listArtists.push(this.artist)
+    let dejaLa : boolean = false;
+    for(let e of this.listArtists){
+      if(e.id == this.artist.id){
+        dejaLa = true;
+        break;
+      }
+    }
+    if(!dejaLa) this.listArtists.push(this.artist);
+
+    // modifier local
+    localStorage.setItem("listArtists", JSON.stringify(this.listArtists));
   }
 }

@@ -13,6 +13,9 @@
                 </map-marker>
             </google-map>
             <div class="shows">
+                <h3 *ngIf = "showsList.length == 0">
+                    L'artiste {{nomArtist}} n'a pas de concerts en ce moment too bad!
+                </h3>
                 <div *ngFor="let s of showsList">
                     <h4>{{s.date | date:'MMM d, y, h:mm:ss a'}}</h4>
                     <p>{{s.pays}}</p>

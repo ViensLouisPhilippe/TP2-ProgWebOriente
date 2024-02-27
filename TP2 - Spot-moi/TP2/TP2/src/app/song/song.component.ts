@@ -16,6 +16,7 @@ export class SongComponent implements OnInit {
   videoSearchText : string = "";
   videoId : string = "";
   videoUrl ?: SafeResourceUrl;
+  albumName : string | null = null;
 
   constructor(public route : ActivatedRoute, public data : SpotifyService, public sanitizer : DomSanitizer) { }
 
@@ -25,6 +26,7 @@ export class SongComponent implements OnInit {
     if(this.albumId != undefined){
       this.Songs = await this.data.getSongs(this.albumId);
     }
+    this.albumName = sessionStorage.getItem("albumName");
   }
   async searchVideo(songName : string, artistName : string): Promise<void>{
     this.videoId = await this.data.getVideoId(songName + " " + artistName);

@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AlbumComponent implements OnInit {
   artistId : string | null = null;
   listAlbums : album[] = [];
+  artistName : string | null = null;
 
   constructor(public route : ActivatedRoute, public data : SpotifyService) { }
 
@@ -21,5 +22,6 @@ export class AlbumComponent implements OnInit {
     if(this.artistId != undefined){
       this.listAlbums = await this.data.getAlbums(this.artistId);
     }
+    this.artistName = sessionStorage.getItem("artistName");
   }
 }

@@ -1,0 +1,23 @@
+{
+    "headerFooter":{
+        "title1" : "Spotify Recherche Tp2",
+        "footer1" : "Tous droits réservés à Spotify, BandsInTown et Google"
+    },
+    "songComponent":{
+        "title1": "Chansons de l'album {{x}}",
+        "playText":"Jouer"
+    },
+    "showComponent":{
+        "title1": "Concerts de l'artiste {{x}}",
+        "messageAucunConcert" : "L'artiste {{x}} n'a pas de concerts en ce moment too bad!"
+    },
+    "albumComponent":{
+        "title1": "Albums de l'artiste {{x}}",
+        "listText": "Chansons"
+    },
+    "artistComponent":{
+        "addArtist": "Ajouter des artistes",
+        "search" : "Rechercher",
+        "listText" : "Vos artistes : "
+    }
+}

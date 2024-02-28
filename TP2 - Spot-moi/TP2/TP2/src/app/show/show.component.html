@@ -1,6 +1,6 @@
 
     <main>
-        <h3>Concerts de l'artiste {{nomArtist}}</h3>
+        <h3>{{'showComponent.title1' | translate : {x : nomArtist} }}</h3>
         <div class="row">
             <google-map
                 [center]="center"
@@ -14,7 +14,7 @@
             </google-map>
             <div class="shows">
                 <h3 *ngIf = "showsList.length == 0">
-                    L'artiste {{nomArtist}} n'a pas de concerts en ce moment too bad!
+                    {{'showComponent.messageAucunConcert' | translate : {x : nomArtist} }}
                 </h3>
                 <div *ngFor="let s of showsList">
                     <h4>{{s.date | date:'MMM d, y, h:mm:ss a'}}</h4>

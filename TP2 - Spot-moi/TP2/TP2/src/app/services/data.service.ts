@@ -6,6 +6,7 @@ import { show } from '../model/show';
 import { Data } from '@angular/router';
 import { album } from '../model/album';
 import { song } from '../model/song';
+import { TranslateService } from '@ngx-translate/core/dist/public-api';
 
 const CLIENT_ID : string = "b5ab92f30c1546b7b57f108b9d871bcc";
 const CLIENT_SECRET : string = "0a54a3b296124daeb2a507833622c2c7";
@@ -19,7 +20,7 @@ export class SpotifyService {
   spotifyToken : string | null = null;
   artistChercher ?: Artist;
 
-  constructor(public http : HttpClient) { }
+  constructor(public http : HttpClient) {}
 
   async connect(): Promise<void> {
       let body = new HttpParams().set('grant_type', 'client_credentials');

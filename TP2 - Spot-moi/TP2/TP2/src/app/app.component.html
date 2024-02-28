@@ -1,11 +1,11 @@
 
     <header>
         <div class="row">
-            <div><a href="artist.html">Spotify Recherche Tp2</a></div>
+            <div><a href="artist.html">{{'headerFooter.title1'| translate}}</a></div>
             <div class="spacer"></div>
             <div>
-                <select name="language" id="language">
-                    <option value="fr-ca">Français</option>
+                <select name="language" [(ngModel)] = "language" (change) = "changeLanguage()">
+                    <option value="fr-ca" >Français</option>
                     <option value="en-us">English</option>
                 </select>
             </div>
@@ -16,6 +16,6 @@
     </main>
     <footer>
       <div>
-          &copy; Tous droits réservés à Spotify, BandsInTown et Google
+          &copy; {{'headerFooter.footer1'| translate}}
       </div>
   </footer>

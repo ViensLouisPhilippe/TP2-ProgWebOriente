@@ -4,7 +4,7 @@
         "footer1" : "All rights reserve to Spotify, BandsInTown et Google"
     },
     "songComponent":{
-        "title1": "songs catalogue for {{x}}",
+        "title1": "Songs catalogue for {{x}}",
         "playText":"Play"
     },
     "showComponent":{

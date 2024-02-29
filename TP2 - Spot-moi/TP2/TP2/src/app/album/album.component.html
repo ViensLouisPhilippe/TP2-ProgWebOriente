@@ -1,0 +1,17 @@
+
+    <main>
+        <div class="row">
+            <div class="albums">
+                <h3>{{'albumComponent.title1' | translate : {x : artistName} }}</h3>
+                <div class="row">
+
+                    <!-- Liste d'albums d'un artiste choisi -->
+                    <div *ngFor = "let a of listAlbums">
+                        <h4>{{a.name}}</h4>
+                        <img src="{{a.imageUrl}}">
+                        <button [routerLink]="['/song',a.id]">{{'albumComponent.listText' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

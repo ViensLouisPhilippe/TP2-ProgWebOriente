@@ -1,0 +1,21 @@
+
+    <header>
+        <div class="row">
+            <div><a href="artist"><h3>{{'headerFooter.title1'| translate}}</h3></a></div>
+            <div class="spacer"></div>
+            <div>
+                <select name="language" [(ngModel)] = "language" (change) = "changeLanguage()">
+                    <option value="fr-ca" >Français</option>
+                    <option value="en-us">English</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+    <footer>
+      <div>
+          &copy; {{'headerFooter.footer1'| translate}}
+      </div>
+  </footer>

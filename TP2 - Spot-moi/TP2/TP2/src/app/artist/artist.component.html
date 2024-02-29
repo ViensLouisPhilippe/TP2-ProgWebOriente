@@ -1,0 +1,21 @@
+
+        <div class="row">
+            <div class="search">
+                <h3>{{'artistComponent.addArtist' | translate}}</h3>
+                <form>
+                    <input id="contenu" type="text" name="artistName" placeholder="Travis Scott" [(ngModel)]="nomArtist" >
+                    <button class="clic" onclick="document.getElementById('contenu').value = ''" (click)="getArtist()" type="submit" >{{'artistComponent.search' | translate}}</button>
+                </form>
+            </div>
+            <div class="display">
+                <h3>{{'artistComponent.listText' | translate}}</h3>
+                <div class="row">
+                    <div *ngFor="let a of listArtists">
+                            <h4>{{a.name}}</h4>
+                            <img src="{{a.imageUrl}}" alt="">
+                            <button [routerLink]="['/album',a.id]">Albums</button>
+                            <button [routerLink]="['/show',a.name]">Concerts</button>
+                    </div>
+                </div>
+            </div>
+        </div>

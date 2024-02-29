@@ -1,0 +1,23 @@
+{
+    "headerFooter":{
+        "title1" : "Spotify Search Tp2",
+        "footer1" : "All rights reserve to Spotify, BandsInTown et Google"
+    },
+    "songComponent":{
+        "title1": "Songs catalogue for {{x}}",
+        "playText":"Play"
+    },
+    "showComponent":{
+        "title1": "Concert date for {{x}}",
+        "messageAucunConcert" : "{{x}} has no events booked right now!"
+    },
+    "albumComponent":{
+        "title1": "Album discography for {{x}}",
+        "listText": "Songs"
+    },
+    "artistComponent":{
+        "title1": "Add Artist",
+        "search" : "Search",
+        "listText" : "Your artists : "
+    }
+}

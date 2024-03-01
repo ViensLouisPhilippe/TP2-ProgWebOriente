@@ -6,7 +6,7 @@
     "songComponent":{
         "title1": "Chansons de l'album {{x}}",
         "playText":"Jouer"
-    },
+    },   
     "showComponent":{
         "title1": "Concerts de l'artiste {{x}}",
         "messageAucunConcert" : "L'artiste {{x}} n'a pas de concerts en ce moment too bad!"
@@ -18,6 +18,7 @@
     "artistComponent":{
         "addArtist": "Ajouter des artistes",
         "search" : "Rechercher",
-        "listText" : "Vos artistes : "
+        "listText" : "Vos artistes : ",
+        "viderText" : "Vider la list"
     }
 }

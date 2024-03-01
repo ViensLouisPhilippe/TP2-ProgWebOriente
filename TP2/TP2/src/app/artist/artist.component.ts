@@ -42,6 +42,14 @@ export class ArtistComponent implements OnInit {
     if(!dejaLa) this.listArtists.push(this.artist);
 
     // modifier local
+    this.saveListArtist()
+  }
+  async emptyListArtists()
+  {
+    this.listArtists = [];
+    this.saveListArtist
+  }
+  async saveListArtist(){
     localStorage.setItem("listArtists", JSON.stringify(this.listArtists));
   }
 }

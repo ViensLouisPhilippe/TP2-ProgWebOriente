@@ -18,6 +18,7 @@
     "artistComponent":{
         "title1": "Add Artist",
         "search" : "Search",
-        "listText" : "Your artists : "
+        "listText" : "Your artists : ",
+        "viderText" : "Clear list"
     }
 }
